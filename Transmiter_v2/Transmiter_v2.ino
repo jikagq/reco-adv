@@ -35,6 +35,7 @@ void loop() {
     delay(500);
     digitalWrite(tx,LOW);
     delay(50);
+    //preamble();
     transmition(adresse);
   }
 }
@@ -118,6 +119,40 @@ void man(int val){
     delay(b);
   }
  
+}
+
+void preamble(){
+    /*putc(0x55);   0101 0101 0000 0000 1111 1111 -> data
+    putc(0x00);
+    putc(0xff);*/
+  int z = 128;
+  int bob = 0;
+  
+  int a = 0x55;
+  int b = 0x00;
+  int c = 0xff;
+  int val =
+
+  for(int =0; i<2;i++){
+    
+    for(int i=1;i<9;i++){
+      bob =(val & z);
+      if(bob != 0){
+        digitalWrite(tx,HIGH);
+      }else{
+        digitalWrite(tx,LOW);
+      }
+      z>>=1;
+    }
+
+
+
+
+
+  }
+  
+    
+    
 }
 
 
