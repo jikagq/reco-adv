@@ -173,10 +173,10 @@ int incommingpulse(){
   startpulse = millis();
   if(digitalRead(rxpin) == 1){
     while(digitalRead(rxpin)==1){
-      ;
+      ; //WTF ?
     }
   }else{
-    ;
+    ;//WTF ?
   }
   endpulse = millis();
   dureepulse = endpulse-startpulse;

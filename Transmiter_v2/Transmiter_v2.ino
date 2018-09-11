@@ -14,7 +14,7 @@ int m=128;
 
 void setup() {
   //Serial.begin(9600);
-  //Serial.println("Hello friend");
+  //Serial.println("Hello there");
   //Serial.println("rico alpha v1");
   pinMode(13, OUTPUT);
   pinMode(clk, OUTPUT);
@@ -31,11 +31,11 @@ void setup() {
 void loop() {
   if(digitalRead(trig)==LOW){
     adresse = convparaversserie();
-    digitalWrite(tx,HIGH);
-    delay(500);
-    digitalWrite(tx,LOW);
-    delay(50);
-    //preamble();
+    //digitalWrite(tx,HIGH);
+    //delay(500);
+    //digitalWrite(tx,LOW);
+    //delay(50);
+    preamble();
     transmition(adresse);
   }
 }
@@ -125,36 +125,26 @@ void preamble(){
     /*putc(0x55);   0101 0101 0000 0000 1111 1111 -> data
     putc(0x00);
     putc(0xff);*/
+  transmitt(0x55);
+  transmitt(0x00);
+  transmitt(0xff);
+}
+
+
+void transmitt(int octet){
   int z = 128;
   int bob = 0;
   
-  int a = 0x55;
-  int b = 0x00;
-  int c = 0xff;
-  int val =
-
-  for(int =0; i<2;i++){
-    
-    for(int i=1;i<9;i++){
-      bob =(val & z);
+  for(int i=1;i<9;i++){
+      bob =(octet & z);
       if(bob != 0){
         digitalWrite(tx,HIGH);
       }else{
         digitalWrite(tx,LOW);
       }
       z>>=1;
-    }
-
-
-
-
-
-  }
-  
-    
-    
+    }     
 }
-
 
 
 
